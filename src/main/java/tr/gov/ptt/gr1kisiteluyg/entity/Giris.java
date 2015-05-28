@@ -23,6 +23,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "GIRIS")
 @NamedQueries({
+    @NamedQuery(name = "Giris.girisKontrol", query = "SELECT g FROM Giris g WHERE g.ad = :ad and g.sifre=:sifre"),
     @NamedQuery(name = "Giris.findAll", query = "SELECT g FROM Giris g"),
     @NamedQuery(name = "Giris.findByAd", query = "SELECT g FROM Giris g WHERE g.ad = :ad"),
     @NamedQuery(name = "Giris.findBySifre", query = "SELECT g FROM Giris g WHERE g.sifre = :sifre")})
