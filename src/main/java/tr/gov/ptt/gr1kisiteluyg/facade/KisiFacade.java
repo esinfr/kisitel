@@ -5,6 +5,7 @@
  */
 package tr.gov.ptt.gr1kisiteluyg.facade;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -26,6 +27,11 @@ public class KisiFacade extends AbstractFacade<Kisi> {
 
     public KisiFacade() {
         super(Kisi.class);
+    }
+    
+    public List<Kisi> kisiListeleSirali()
+    {
+        return em.createQuery("select k from Kisi k order by k.no").getResultList();
     }
     
 }
