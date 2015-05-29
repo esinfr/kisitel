@@ -47,8 +47,11 @@
                                          label="maas" 
                                          navigator="true"
                                          pattern="dd/MM/yyyy"
+                                         showOn="button"
+                                         yearRange="c-70:c+10"
                                          value="#{kisiBean.kisi.dogtar}"/>
                             <p:message id="dogtarMsg" for="dogtar"/>
+                            
                             <p:outputLabel value="Tür(Ev):"/>
                             <p:selectOneMenu id="evtur"
                                              value="#{kisiBean.evtel.tur}">
@@ -58,7 +61,38 @@
                                               itemValue="CEP"/>
                             </p:selectOneMenu>
                             <p:message id="evturMsg" for="evtur"/>
-                                       
+                            
+                            <p:outputLabel value="Tel No:"/>
+                            <p:inputText id="evTelNo" 
+                                         label="Tel No:" 
+                                         value="#{kisiBean.evtel.telno}"
+                                         required="true"/>
+                            <p:message id="evTelNoMsg" for="evTelNo"/>
+
+                            <p:outputLabel value="Tür(Cep):"/>
+                            <p:selectOneMenu id="ceptur"
+                                             value="#{kisiBean.cepTel.tur}">
+
+                                <f:selectItem itemLabel="Cep"
+                                              itemValue="CEP"/>
+                                <f:selectItem itemLabel="Ev"
+                                              itemValue="EV"/>
+                            </p:selectOneMenu>
+                            <p:message id="cepturMsg" for="ceptur"/>
+                            
+                            <p:outputLabel value="Tel No:"/>
+                            <p:inputText id="cepTelNo" 
+                                         label="Tel No:" 
+                                         value="#{kisiBean.cepTel.telno}"
+                                         required="true"/>
+                            <p:message id="cepTelNoMsg" for="cepTelNo"/>
+                            
+                            <p:outputLabel value=""/>
+                            <p:commandButton value="Ekle"
+                                             action="#{kisiBean.kisiEkle()}"
+                                             update="kisiForm"/>
+                            <p:outputLabel value=""/>
+                            
                             
                         </p:panelGrid>
                     </p:panel>
