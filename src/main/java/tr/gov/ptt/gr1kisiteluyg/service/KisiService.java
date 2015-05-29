@@ -5,6 +5,7 @@
  */
 package tr.gov.ptt.gr1kisiteluyg.service;
 
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import tr.gov.ptt.gr1kisiteluyg.entity.Kisi;
@@ -20,5 +21,10 @@ public class KisiService {
     {
         kisiFacade.create(p_kisi);
         
+    }
+    
+    public  List<Kisi> kisiListele()
+    {
+        return kisiFacade.findAll();
     }
 }

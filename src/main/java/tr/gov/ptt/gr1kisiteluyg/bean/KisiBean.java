@@ -21,18 +21,32 @@ public class KisiBean {
     private Kisi kisi;
     private Telefon evtel;
     private Telefon cepTel;
+    
+    private List<Kisi> kisiListe;
 
     @EJB
     private KisiService kisiService;
     
     public KisiBean() {
-        kisi    = new Kisi();
-        evtel   = new Telefon();
-        cepTel  = new Telefon();
+        
+        kisi        = new Kisi();
+        evtel       = new Telefon();
+        cepTel      = new Telefon();
+        kisiListe   = new ArrayList<Kisi>();
     }
     
     public Kisi getKisi() {
         return kisi;
+    }
+
+    public List<Kisi> getKisiListe() {
+        
+        kisiListe = kisiService.kisiListele();
+        return kisiListe;
+    }
+
+    public void setKisiListe(List<Kisi> kisiListe) {
+        this.kisiListe = kisiListe;
     }
 
     public void setKisi(Kisi kisi) {
@@ -69,5 +83,6 @@ public class KisiBean {
         
         return "kisiListele.xhtml?faces-redirect=true";
     }
+    
     
 }
