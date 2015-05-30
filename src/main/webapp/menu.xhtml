@@ -11,8 +11,9 @@
 
             <ui:define name="content">
                 <h:form id="menuForm">
-                    <p>HOŞGELDİN, #{girisBean.giris.ad}</p>
-                    <p:commandButton action="#{girisBean.sessionBitir()}" value="Güvenli Çıkış"  ajax="false"/>
+                    <p:panel header="Hoşgeldin #{girisBean.giris.ad}">
+                    </p:panel>
+                    <p:commandButton rendered="false" action="#{girisBean.sessionBitir()}" value="Güvenli Çıkış"  ajax="false"/>
                 </h:form>
             </ui:define>
 
