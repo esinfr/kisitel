@@ -23,8 +23,16 @@ public class KisiService {
         
     }
     
+    public  void kisiGuncelle(Kisi p_kisi)
+    {
+        kisiFacade.edit(p_kisi);
+        
+    }
+    
     public  List<Kisi> kisiListele()
     {
         return kisiFacade.kisiListeleSirali();
     }
+    
+    
 }

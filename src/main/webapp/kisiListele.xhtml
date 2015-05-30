@@ -13,13 +13,24 @@
 
             <ui:define name="content">
                 <h:form id="listeleForm">
+                    <p:growl id="msgs" showDetail="true"/>
                     <p:panel header="Kişi Listesi">
                        
                         <p:dataTable var="kisi"
                                      paginator="true"
                                      rowsPerPageTemplate="4,8,12"
                                      value="#{kisiBean.kisiListe}"
-                                     rowIndexVar="sira">
+                                     rowIndexVar="sira"
+                                     editable="true">
+                            
+                            <p:ajax event="rowEdit" 
+                                    listener="#{kisiBean.onRowEdit}" 
+                                    update=":listeleForm:msgs"/>
+                            
+                            <p:ajax event="rowEditCancel" 
+                                    listener="#{kisiBean.onRowCancel}" 
+                                    update=":listeleForm:msgs"/>
+                            
                             <f:facet name="header">
                                 Kişi Listesi
                             </f:facet>
@@ -32,23 +43,41 @@
                             <p:column headerText="Ad"
                                       filterBy="#{kisi.ad}"
                                       sortBy="#{kisi.ad}">
-                                <h:outputText value="#{kisi.ad}" />
+                                
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{kisi.ad}" />
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{kisi.ad}" label="Ad"/>
+                                    </f:facet>
+                                </p:cellEditor>
                             </p:column>
 
                             <p:column headerText="Soyad"
                                       filterBy="#{kisi.soyad}"
                                       sortBy="#{kisi.soyad}">
-                                <h:outputText value="#{kisi.soyad}" />
+                                 <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{kisi.soyad}" />
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{kisi.soyad}" label="Soyad"/>
+                                    </f:facet>
+                                </p:cellEditor>
                             </p:column>
                             
                             <p:column headerText="Sıra No:">
                                 <h:outputText value="#{sira+1}"/>
                             </p:column>
+                            <p:column style="width:6%">
+                                <p:rowEditor />
+                            </p:column>
                             <f:facet name="footer">
                                 Toplam Kişi Sayısı #{fn:length(kisiBean.kisiListe)}                                
                             </f:facet>
                         </p:dataTable>
-                        
+
                     </p:panel>
                     
                 </h:form>

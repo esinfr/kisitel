@@ -12,7 +12,7 @@ import tr.gov.ptt.gr1kisiteluyg.util.JSFUtil;
 
 @ManagedBean
 @SessionScoped
-public class GirisBean {
+public class GirisBean  {
     
     private Giris giris;
     
