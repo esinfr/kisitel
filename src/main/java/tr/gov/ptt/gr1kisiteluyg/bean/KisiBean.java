@@ -105,4 +105,22 @@ public class KisiBean implements Serializable{
         JSFUtil.mesajEkle("Kişi güncelleme iptal edildi: " +kisi.getNo()+"-"+kisi.getAd());
     }
 
+    public List<String> adTamamla(String sorgu)
+    {
+        List<String> uygunAdlar = new ArrayList<String>();
+        List<Kisi> kisiListesi  = kisiService.kisiListele();
+        
+        for (Kisi kisi : kisiListesi) {
+            
+            if (kisi.getAd().toUpperCase().startsWith(sorgu.toUpperCase())) {
+                
+                uygunAdlar.add(kisi.getAd());
+            }
+        }
+        
+        
+        return uygunAdlar;
+        
+        
+    }
 }

@@ -33,6 +33,11 @@ public class MenuBean {
        //item.setIcon("ui-icon-home");
        firstSubmenu.addElement(item);
        
+       item  = new DefaultMenuItem("İsim Tamamla");
+       item.setUrl("kisiAra.xhtml?faces-redirect=true");
+       //item.setIcon("ui-icon-home");
+       firstSubmenu.addElement(item);
+       
        model.addElement(firstSubmenu);
 
        //Second submenu
